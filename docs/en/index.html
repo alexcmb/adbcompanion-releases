@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ADB Companion — the Android cockpit for your computer</title>
+<meta name="description" content="ADB Companion: manage your Android devices from Windows, macOS or Linux. Apps, files, terminal, Logcat, monitor, screen mirroring and wireless ADB, without the command line.">
+<meta property="og:title" content="ADB Companion">
+<meta property="og:description" content="The Android cockpit for your computer: apps, files, terminal, Logcat, monitor, screen mirroring and wireless ADB.">
+<meta property="og:image" content="../screens/en/dashboard.webp">
+<meta name="theme-color" content="#090d16">
+<link rel="icon" type="image/svg+xml" href="../logo.svg">
+<link rel="alternate" hreflang="fr" href="https://alexcmb.github.io/adbcompanion-releases/">
+<link rel="alternate" hreflang="en" href="https://alexcmb.github.io/adbcompanion-releases/en/">
+<link rel="alternate" hreflang="x-default" href="https://alexcmb.github.io/adbcompanion-releases/">
+<script>document.documentElement.classList.add("js");</script>
+<link rel="stylesheet" href="../site.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#"><img src="../logo.svg" alt="" width="32" height="32"><span><span class="gradient">ADB</span> Companion</span></a>
+    <nav aria-label="Sections">
+      <a href="#features">Features</a>
+      <a href="#tour">Tour</a>
+      <a href="#download">Download</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a class="lang-switch" href="../" data-lang="fr" hreflang="fr" lang="fr" title="Version française">FR</a>
+    <button class="theme-toggle" type="button" id="theme" aria-label="Toggle light / dark theme">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+    </button>
+  </div>
+</header>
+
+<main>
+  <div class="hero wrap">
+    <span class="pill"><span class="dot"></span><span id="hero-version">Windows · macOS · Linux</span></span>
+    <h1>The <span class="gradient">Android</span> cockpit for your computer</h1>
+    <p class="lead">Apps, files, terminal, Logcat, performance, screen mirroring and wireless connection: all of ADB in a single window, without typing a single command.</p>
+    <div class="cta">
+      <a class="btn primary" id="hero-download" href="#download">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>
+        <span id="hero-download-label">Download</span>
+      </a>
+      <a class="btn" href="#tour">Take the tour</a>
+    </div>
+    <p class="meta" id="hero-meta">English and French interface · dark and light themes</p>
+    <div class="shot-frame glass">
+      <img src="../screens/en/dashboard.webp" alt="ADB Companion dashboard: battery, storage, memory, system and display of the connected device" width="1440" height="900" data-zoom>
+    </div>
+  </div>
+
+  <section id="features">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Everything you do with ADB, <span class="gradient">only better</span></h2>
+        <p>One tool for Android phones, tablets and TVs, over USB or Wi-Fi.</p>
+      </div>
+      <div class="grid">
+        <article class="feature glass">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg></div>
+          <h3>Dashboard</h3>
+          <p>Battery, storage, memory, display, Android version, security patch and root status at a glance.</p>
+        </article>
+        <article class="feature glass">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8l9 5 9-5Z"/><path d="m3 8v8l9 5 9-5V8"/><path d="M12 13v8"/></svg></div>
+          <h3>Apps</h3>
+          <p>Install APK, APKS and XAPK by drag and drop, manage permissions, disable, clear or uninstall in bulk.</p>
+        </article>
+        <article class="feature glass">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></svg></div>
+          <h3>Files</h3>
+          <p>Dual-pane computer ↔ device explorer, fast transfers with progress, preview and root mode.</p>
+        </article>
+        <article class="feature glass">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="m7 9 3 3-3 3M13 15h4"/></svg></div>
+          <h3>Terminal</h3>
+          <p>Full interactive shell in tabs, root tab, ready-made macros and your own shortcuts.</p>
+        </article>
+        <article class="feature glass">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 10h10M4 14h16M4 18h7"/></svg></div>
+          <h3>Logcat</h3>
+          <p>Live logs, filters by level, tag, app or regular expression, pause and export.</p>
+        </article>
+        <article class="feature glass">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg></div>
+          <h3>Monitor</h3>
+          <p>Per-core CPU, memory, temperatures and battery in real time, plus a process manager.</p>
+        </article>
+        <article class="feature glass">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="14" height="11" rx="2"/><rect x="16" y="9" width="6" height="11" rx="1.5"/><path d="M6 19h6"/></svg></div>
+          <h3>Screen mirror</h3>
+          <p>View and control the device with scrcpy, installed for you; recording and a lighter Wi-Fi profile.</p>
+        </article>
+        <article class="feature glass">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5a10 10 0 0 1 14 0M8.5 16a5 5 0 0 1 7 0M2 9a15 15 0 0 1 20 0"/><circle cx="12" cy="19.5" r="1"/></svg></div>
+          <h3>Wireless</h3>
+          <p>QR code or pairing code, automatic discovery, one-click USB → Wi-Fi switch and automatic reconnection.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="tour">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Take the tour</h2>
+        <p>Screenshots made with demo devices: your data stays yours.</p>
+      </div>
+
+      <div class="detail">
+        <div class="text">
+          <span class="eyebrow">Apps</span>
+          <h3>Your apps, under control</h3>
+          <p>The full list, with icons, sizes and filters, loads in seconds.</p>
+          <ul>
+            <li>Install APK, APKS (bundles) and XAPK with OBB data, by drag and drop</li>
+            <li>Launch, force stop, disable, clear cache or data, uninstall or restore</li>
+            <li>Bulk actions, with critical system packages protected</li>
+            <li>Inspect and change permissions</li>
+          </ul>
+        </div>
+        <figure class="glass"><img src="../screens/en/apps.webp" alt="App manager: list with icons, versions and sizes" width="1440" height="900" loading="lazy" data-zoom></figure>
+      </div>
+
+      <div class="detail reverse">
+        <div class="text">
+          <span class="eyebrow">Files</span>
+          <h3>Copy both ways with a drag and drop</h3>
+          <p>The explorer speaks ADB's sync protocol directly: fast, reliable, no detour through the shell.</p>
+          <ul>
+            <li>Two panes, computer ↔ device, drag and drop from your file manager</li>
+            <li>Tracked transfers (speed, files left) you can cancel</li>
+            <li>Conflict handling: replace, skip or keep both</li>
+            <li>Image and text preview, root mode for the whole file system</li>
+          </ul>
+        </div>
+        <figure class="glass"><img src="../screens/en/files.webp" alt="Dual-pane file explorer with a transfer in progress" width="1440" height="900" loading="lazy" data-zoom></figure>
+      </div>
+
+      <div class="detail">
+        <div class="text">
+          <span class="eyebrow">Terminal</span>
+          <h3>A real shell, not a text box</h3>
+          <p>Colors, completion, full-screen programs and resizing: the terminal behaves like it does on the device.</p>
+          <ul>
+            <li>Multiple sessions in tabs, keyboard navigation</li>
+            <li>Root tab when the device allows it</li>
+            <li>Built-in macros (battery, properties, disk space…) and your own</li>
+          </ul>
+        </div>
+        <figure class="glass"><img src="../screens/en/terminal.webp" alt="ADB terminal with several commands and the macros panel" width="1440" height="900" loading="lazy" data-zoom></figure>
+      </div>
+
+      <div class="detail reverse">
+        <div class="text">
+          <span class="eyebrow">Logcat</span>
+          <h3>Readable logs, even at a thousand lines a second</h3>
+          <p>Smooth at any rate, with a real pause: nothing is kept while it's on.</p>
+          <ul>
+            <li>Filter by level, tag (with exclusions), app or regular expression</li>
+            <li>Follows an app's processes automatically</li>
+            <li>Clear locally or on the device, export to a text file</li>
+          </ul>
+        </div>
+        <figure class="glass"><img src="../screens/en/logcat.webp" alt="Live Logcat with colored levels and filters" width="1440" height="900" loading="lazy" data-zoom></figure>
+      </div>
+
+      <div class="detail">
+        <div class="text">
+          <span class="eyebrow">Monitor</span>
+          <h3>What your device is doing, in real time</h3>
+          <p>Charts over 1 to 30 minutes, sampled every second or less often.</p>
+          <ul>
+            <li>Load and frequency of each CPU core</li>
+            <li>Memory, sensor temperatures and battery (current, voltage)</li>
+            <li>Process manager: sort, search, kill, free memory</li>
+          </ul>
+        </div>
+        <figure class="glass"><img src="../screens/en/monitor.webp" alt="Performance monitor: CPU, cores, memory and temperatures" width="1440" height="900" loading="lazy" data-zoom></figure>
+      </div>
+
+      <div class="detail reverse">
+        <div class="text">
+          <span class="eyebrow">Wireless</span>
+          <h3>Cut the cable</h3>
+          <p>Wireless ADB without remembering any address or port.</p>
+          <ul>
+            <li>Pair by scanning a QR code from the phone (Android 11 and later)</li>
+            <li>Pair with a six-digit code, or connect to an address</li>
+            <li>One-click USB → Wi-Fi switch, automatic reconnection</li>
+            <li>A device plugged in over USB and Wi-Fi shows up only once</li>
+          </ul>
+        </div>
+        <figure class="glass"><img src="../screens/en/wireless-qr.webp" alt="Wireless connection dialog showing a pairing QR code" width="1440" height="900" loading="lazy" data-zoom></figure>
+      </div>
+
+      <div class="detail">
+        <div class="text">
+          <span class="eyebrow">Screen mirror</span>
+          <h3>Your device's screen in a window</h3>
+          <p>ADB Companion installs and configures <a href="https://github.com/Genymobile/scrcpy" rel="noopener">scrcpy</a> for you.</p>
+          <ul>
+            <li>Adjustable resolution, bit rate, frame rate and codec</li>
+            <li>Device screen off, visible touches, session recording</li>
+            <li>Lighter profile over Wi-Fi, automatic fallback when the device's video encoder fails</li>
+          </ul>
+        </div>
+        <figure class="glass"><img src="../screens/en/mirror.webp" alt="scrcpy screen mirror settings" width="1440" height="900" loading="lazy" data-zoom></figure>
+      </div>
+
+      <div class="detail reverse">
+        <div class="text">
+          <span class="eyebrow">Quick settings</span>
+          <h3>Android's hidden options, risk-free</h3>
+          <p>Every original value is remembered: one click on "Restore" and the device is back to how it was.</p>
+          <ul>
+            <li>Animation speed, display resolution and density</li>
+            <li>Stay awake while charging, show touches</li>
+            <li>Private DNS, dark theme, force dark</li>
+          </ul>
+        </div>
+        <figure class="glass"><img src="../screens/en/tweaks.webp" alt="Quick settings: animations, display, private DNS and theme" width="1440" height="900" loading="lazy" data-zoom></figure>
+      </div>
+
+      <div class="detail">
+        <div class="text">
+          <span class="eyebrow">Everyday use</span>
+          <h3>Built for speed</h3>
+          <ul>
+            <li>Command palette <kbd>Ctrl</kbd> + <kbd>K</kbd>: any view or action from the keyboard</li>
+            <li>Reboot to system, recovery, bootloader, fastbootd or EDL; screenshots to save or copy</li>
+            <li>Notification area icon and connection notifications</li>
+            <li>ADB downloaded automatically if missing, signed app updates</li>
+            <li>Dark or light theme with a glass effect, English or French interface</li>
+          </ul>
+        </div>
+        <figure class="glass"><img src="../screens/en/palette.webp" alt="Command palette open over the interface" width="1440" height="900" loading="lazy" data-zoom></figure>
+      </div>
+
+      <div class="detail reverse">
+        <div class="text">
+          <span class="eyebrow">Light theme</span>
+          <h3>Just as comfortable in daylight</h3>
+          <p>The theme follows your system or can be picked in the settings; the glass effect can be turned off on modest machines.</p>
+        </div>
+        <figure class="glass"><img src="../screens/en/dashboard-light.webp" alt="Dashboard in the light theme" width="1440" height="900" loading="lazy" data-zoom></figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="download">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Download</h2>
+        <p>Install it, plug in your device with USB debugging on: you're ready.</p>
+      </div>
+      <div class="downloads" id="downloads">
+        <div class="glass fallback">Loading releases…</div>
+      </div>
+      <p class="release-info" id="release-info"></p>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head"><h2>Frequently asked questions</h2></div>
+      <div class="faq">
+        <details class="glass">
+          <summary>Windows says "Windows protected your PC". Is that normal?</summary>
+          <p>Yes: the installer isn't signed with a developer certificate yet, so SmartScreen doesn't know it. Click "More info", then "Run anyway". Updates, on the other hand, are signed and verified by the app before they're installed.</p>
+        </details>
+        <details class="glass">
+          <summary>macOS won't open the app.</summary>
+          <p>The app isn't notarized by Apple yet. Right-click ADB Companion in the Applications folder, choose "Open" and confirm. Pick the <code>aarch64</code> file for an Apple Silicon Mac (M1 and later), <code>x64</code> for an Intel Mac.</p>
+        </details>
+        <details class="glass">
+          <summary>Do I need to install ADB or Android Studio?</summary>
+          <p>No. ADB Companion finds an existing ADB (Android SDK, PATH…) and otherwise offers to download Google's official Platform-Tools in one click. scrcpy, for screen mirroring, installs the same way.</p>
+        </details>
+        <details class="glass">
+          <summary>How do I prepare my device?</summary>
+          <p>In Android's settings, open "About phone" and tap "Build number" seven times to unlock Developer options. Turn on "USB debugging" there (and "Wireless debugging" for Wi-Fi), plug the device in, then accept the computer's key on its screen.</p>
+        </details>
+        <details class="glass">
+          <summary>Does my device need to be rooted?</summary>
+          <p>No. Root is only used for a few advanced features (browsing the whole file system, the terminal's root tab, clearing an app's cache), when your root manager grants it to the shell.</p>
+        </details>
+        <details class="glass">
+          <summary>Where is my data stored? Is anything sent anywhere?</summary>
+          <p>On Windows the install is "portable": settings, logs and downloaded tools live in a <code>data</code> folder next to the app (the installer offers to remove it on uninstall). The app sends no data: it only goes online to check for updates and, when you ask, to download ADB or scrcpy.</p>
+        </details>
+        <details class="glass">
+          <summary>What is an experimental version?</summary>
+          <p>A pre-release published for testing: early features, possible bugs. In Settings → Updates, the "Experimental versions" option lets you receive them automatically.</p>
+        </details>
+        <details class="glass">
+          <summary>Linux: my device doesn't show up over USB.</summary>
+          <p>Your user needs access to Android USB devices: install your distribution's udev rules package (often <code>android-udev-rules</code> or <code>android-sdk-platform-tools-common</code>), add yourself to the group it names (<code>plugdev</code> or <code>adbusers</code>), then plug the device in again.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span><span class="gradient">ADB</span> Companion · the Android cockpit for your computer</span>
+    <span><a href="https://github.com/alexcmb/adbcompanion-releases/releases" rel="noopener">All releases</a> · <a href="https://github.com/Genymobile/scrcpy" rel="noopener">scrcpy</a> · <a href="https://developer.android.com/tools/releases/platform-tools" rel="noopener">Platform-Tools</a></span>
+  </div>
+</footer>
+
+<!-- Platform icons (downloads) -->
+<template id="icon-windows"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 5.5 10.5 4.4v7.1H3zM11.5 4.3 21 3v8.5h-9.5zM3 12.5h7.5v7.1L3 18.5zM11.5 12.5H21V21l-9.5-1.3z"/></svg></template>
+<template id="icon-macos"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.4 12.6c0-2.4 2-3.6 2.1-3.7-1.2-1.7-3-1.9-3.6-2-1.5-.2-3 .9-3.8.9-.8 0-2-.9-3.3-.9-1.7 0-3.3 1-4.2 2.5-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8s2 .8 3.3.8c1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9 0 0-2.8-1.1-2.8-4.2zM13.9 5.2c.7-.8 1.2-2 1-3.2-1 0-2.2.7-2.9 1.5-.6.7-1.2 1.9-1 3.1 1.1.1 2.2-.6 2.9-1.4z"/></svg></template>
+<template id="icon-linux"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c-2.2 0-3.5 1.9-3.5 4.4 0 1.4.3 2.3-.6 3.6C6.6 11.8 5 14 5 16.3c0 .9.3 1.6.8 2.1"/><path d="M12 2c2.2 0 3.5 1.9 3.5 4.4 0 1.4-.3 2.3.6 3.6 1.3 1.8 2.9 4 2.9 6.3 0 .9-.3 1.6-.8 2.1"/><path d="M8 19.5c-1.2.6-2.9.2-3.4 1.2-.3.6 1.4 1.3 3.4 1.3 1.6 0 2.4-.8 4-.8s2.4.8 4 .8c2 0 3.7-.7 3.4-1.3-.5-1-2.2-.6-3.4-1.2"/><circle cx="10.3" cy="6.5" r=".6" fill="currentColor"/><circle cx="13.7" cy="6.5" r=".6" fill="currentColor"/><path d="M10.5 9c.9.6 2.1.6 3 0"/></svg></template>
+<template id="icon-file"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg></template>
+
+<dialog class="viewer" id="viewer" aria-label="Enlarged screenshot">
+  <form method="dialog"><button type="submit" style="all:unset;display:block;cursor:zoom-out"><img id="viewer-img" alt=""><p id="viewer-caption"></p></button></form>
+</dialog>
+
+<script src="../site.js"></script>
+</body>
+</html>
