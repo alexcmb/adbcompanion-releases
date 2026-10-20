@@ -4,9 +4,11 @@
 
 # ADB Companion
 
-**Le cockpit Android de votre ordinateur.**
-Applications, fichiers, terminal, Logcat, performances, miroir d'écran et connexion sans fil :
-tout ADB dans une seule fenêtre, sans taper une ligne de commande.
+**Gestion et contrôle des appareils Android via ADB.**
+
+Une interface graphique complète pour Android Debug Bridge : administration des applications,<br>
+transfert de fichiers, shell interactif, journaux système, supervision des performances,<br>
+recopie d'écran et connexion sans fil, sans saisie de commandes.
 
 [**Site et téléchargements**](https://alexcmb.github.io/adbcompanion-releases/) ·
 [Toutes les versions](https://github.com/alexcmb/adbcompanion-releases/releases) ·
@@ -17,112 +19,102 @@ Windows · macOS · Linux — interface en français et en anglais
 
 <img src="docs/screens/dashboard.webp" alt="Tableau de bord d'ADB Companion" width="900">
 
-</div>
+<sub>Captures réalisées avec des appareils de démonstration fictifs.</sub>
 
-> [!NOTE]
-> Les captures d'écran de cette page sont réalisées avec des appareils de démonstration fictifs.
-
-## Sommaire
-
-- [Fonctionnalités](#fonctionnalités)
-- [Installation](#installation)
-- [Premiers pas](#premiers-pas)
-- [Visite guidée](#visite-guidée)
-- [Mises à jour](#mises-à-jour)
-- [Questions fréquentes](#questions-fréquentes)
+[Fonctionnalités](#fonctionnalités) · [Installation](#installation) · [Mise en service](#mise-en-service) · [Aperçu](#aperçu) · [Mises à jour](#mises-à-jour) · [Questions fréquentes](#questions-fréquentes)
 
 ## Fonctionnalités
 
-| | |
-|---|---|
-| **Tableau de bord** | Batterie (niveau, santé, température, courant), stockage, mémoire, écran, version d'Android, correctif de sécurité, processeur, état du bootloader et du root. Capture d'écran à enregistrer ou copier, redémarrage en mode normal, recovery, bootloader, fastbootd ou EDL. |
-| **Applications** | Liste complète avec icônes, tailles et filtres (utilisateur, système, désactivées, désinstallées). Installation d'APK, d'APKS et de XAPK (avec données OBB) par glisser-déposer. Lancer, arrêter, désactiver, vider le cache ou les données, désinstaller, restaurer une application système. Actions par lots, permissions modifiables. |
-| **Fichiers** | Explorateur à deux volets ordinateur ↔ appareil sur le protocole de synchronisation d'ADB. Transferts suivis et annulables, gestion des conflits (remplacer, ignorer, garder les deux), aperçu, glisser-déposer depuis l'explorateur du système, mode root. |
-| **Terminal** | Shell interactif complet (couleurs, complétion, redimensionnement) en onglets, onglet root, macros intégrées et personnalisées. |
-| **Logcat** | Journaux en direct et fluides, filtres par niveau, étiquette (avec exclusions), application ou expression régulière, vraie pause, effacement, export. |
-| **Moniteur** | Processeur cœur par cœur, mémoire, températures et batterie en temps réel sur 1 à 30 minutes. Gestionnaire de processus : tri, recherche, arrêt, libération de mémoire. |
-| **Miroir d'écran** | Affichage et contrôle de l'appareil avec [scrcpy](https://github.com/Genymobile/scrcpy), installé et réglé pour vous : définition, débit, codec, écran éteint, enregistrement. Profil allégé en Wi-Fi, repli automatique si l'encodeur vidéo de l'appareil échoue. |
-| **Sans fil** | Appairage par QR code ou par code, découverte automatique des appareils, connexion par adresse, passage USB → Wi-Fi en un clic, reconnexion automatique, indicateur de connexion instable. Un appareil branché en USB et en Wi-Fi n'apparaît qu'une fois. |
-| **Réglages rapides** | Vitesse des animations, définition et densité de l'écran, rester éveillé, afficher les touches, DNS privé, thème sombre, assombrissement forcé — avec retour aux valeurs d'origine en un clic. |
-| **Confort** | Palette de commandes <kbd>Ctrl</kbd>+<kbd>K</kbd>, icône dans la zone de notification, notifications de connexion, ADB téléchargé automatiquement si absent, thème sombre ou clair avec effet verre, mises à jour signées. |
+| Module | Fonctions |
+|:---:|:---:|
+| **Tableau de bord** | État de l'appareil : batterie (niveau, santé, température, courant), stockage, mémoire, affichage, version d'Android, niveau de correctif de sécurité, processeur, état du bootloader et statut root. Captures d'écran, redémarrage en mode système, recovery, bootloader, fastbootd ou EDL. |
+| **Applications** | Inventaire des paquets avec icônes, tailles et filtres (utilisateur, système, désactivées, désinstallées). Installation d'APK, d'APKS et de XAPK (avec données OBB) par glisser-déposer. Lancement, arrêt forcé, désactivation, nettoyage du cache ou des données, désinstallation, restauration d'une application système. Actions par lots, gestion des permissions. |
+| **Fichiers** | Explorateur à double volet poste ↔ appareil reposant sur le protocole de synchronisation d'ADB. Transferts suivis et annulables, gestion des conflits (remplacer, ignorer, conserver les deux), aperçu, glisser-déposer depuis l'explorateur du système, mode root. |
+| **Terminal** | Shell ADB interactif (couleurs, complétion, redimensionnement dynamique) multi-onglets, session root, macros intégrées et personnalisables. |
+| **Logcat** | Journaux système en temps réel, filtrage par niveau, tag (avec exclusions), application ou expression régulière, pause effective de la collecte, purge, export. |
+| **Moniteur** | Supervision en temps réel sur 1 à 30 minutes : charge CPU par cœur, mémoire, températures, batterie. Gestionnaire de processus : tri, recherche, arrêt, libération de la mémoire. |
+| **Miroir d'écran** | Recopie et contrôle de l'appareil via [scrcpy](https://github.com/Genymobile/scrcpy), déployé et configuré automatiquement : résolution, débit, codec, extinction de l'écran, enregistrement. Profil optimisé pour le Wi-Fi, repli automatique en cas d'échec de l'encodeur vidéo. |
+| **Sans fil** | Appairage par QR code ou par code, découverte mDNS, connexion par adresse, bascule USB → Wi-Fi en un clic, reconnexion automatique, indicateur de connexion instable. Regroupement des connexions USB et Wi-Fi d'un même appareil. |
+| **Réglages rapides** | Échelle des animations, résolution et densité d'affichage, maintien de l'écran allumé, affichage des touches, DNS privé, thème sombre, assombrissement forcé, avec restauration des valeurs d'origine. |
+| **Intégration** | Palette de commandes <kbd>Ctrl</kbd>+<kbd>K</kbd>, icône dans la zone de notification, notifications de connexion, déploiement automatique d'ADB, thèmes clair et sombre, mises à jour signées. |
 
 ## Installation
 
-Téléchargez la version adaptée à votre système depuis le [site](https://alexcmb.github.io/adbcompanion-releases/#telecharger) ou la [page des versions](https://github.com/alexcmb/adbcompanion-releases/releases) :
+Téléchargez le paquet correspondant à votre système depuis le [site](https://alexcmb.github.io/adbcompanion-releases/#telecharger) ou la [page des versions](https://github.com/alexcmb/adbcompanion-releases/releases).
 
 | Système | Fichier | Remarque |
-|---|---|---|
+|:---:|:---:|:---:|
 | Windows 10 / 11 (64 bits) | `ADB.Companion_<version>_x64-setup.exe` | Recommandé. Installation portable : toutes les données dans le dossier de l'application. |
-| | `ADB.Companion_<version>_x64_fr-FR.msi` | Pour un déploiement en entreprise. |
-| macOS 11+ Apple Silicon | `ADB.Companion_<version>_aarch64.dmg` | Mac M1 et suivants. |
+| | `ADB.Companion_<version>_x64_fr-FR.msi` | Déploiement sur un parc de postes. |
+| macOS 11+ Apple Silicon | `ADB.Companion_<version>_aarch64.dmg` | Mac M1 et ultérieurs. |
 | macOS 11+ Intel | `ADB.Companion_<version>_x64.dmg` | |
 | Linux x86_64 | `ADB.Companion_<version>_amd64.AppImage` | Toutes distributions. |
 | | `.deb` / `.rpm` | Debian, Ubuntu… / Fedora, openSUSE… |
 
-> [!IMPORTANT]
-> L'application n'est pas encore signée par un certificat de développeur.
-> - **Windows** : SmartScreen affiche « Windows a protégé votre ordinateur » → *Informations complémentaires* → *Exécuter quand même*.
-> - **macOS** : clic droit sur l'application → *Ouvrir*, puis confirmer.
->
-> Les mises à jour, elles, sont signées et vérifiées par l'application avant d'être installées.
+> **Important :** L'application n'est pas encore signée par un certificat de signature de code.<br>
+> **Windows** : SmartScreen affiche « Windows a protégé votre ordinateur » → *Informations complémentaires* → *Exécuter quand même*.<br>
+> **macOS** : clic droit sur l'application → *Ouvrir*, puis confirmer.<br>
+> Les mises à jour sont en revanche signées, et leur signature est vérifiée avant installation.
 
-Rien d'autre à installer : ADB Companion utilise un ADB déjà présent (Android SDK, `PATH`…) ou propose de télécharger les Platform-Tools officiels de Google en un clic.
+Aucun autre prérequis : ADB Companion utilise une installation d'ADB existante (Android SDK, `PATH`…)<br>
+ou propose de télécharger les Platform-Tools officiels de Google.
 
-## Premiers pas
+## Mise en service
 
-1. Sur l'appareil Android : **Paramètres → À propos du téléphone**, touchez sept fois **Numéro de build** pour afficher les *Options pour les développeurs*.
-2. Dans les *Options pour les développeurs*, activez **Débogage USB** (et **Débogage sans fil** pour une connexion Wi-Fi).
-3. Branchez l'appareil et acceptez la clé de l'ordinateur sur son écran. Il apparaît aussitôt dans ADB Companion.
+**1.** Sur l'appareil Android : **Paramètres → À propos du téléphone**, appuyez sept fois sur **Numéro de build** pour activer les *Options pour les développeurs*.<br>
+**2.** Dans les *Options pour les développeurs*, activez le **Débogage USB** (et le **Débogage sans fil** pour une connexion Wi-Fi).<br>
+**3.** Connectez l'appareil et autorisez l'empreinte de la clé RSA de l'ordinateur : l'appareil est détecté automatiquement.
 
-Pour passer en Wi-Fi : bouton **Passer en Wi-Fi** sur le tableau de bord d'un appareil branché en USB, ou **Connexion sans fil → QR code** et scannez le code depuis *Débogage sans fil → Associer l'appareil avec un code QR* (Android 11 et plus).
+Connexion Wi-Fi : bouton **Passer en Wi-Fi** sur le tableau de bord d'un appareil connecté en USB,<br>
+ou **Connexion sans fil → QR code**, à scanner depuis *Débogage sans fil → Associer l'appareil avec un code QR* (Android 11 et versions ultérieures).
 
-## Visite guidée
+## Aperçu
 
-### Applications
+### Gestion des applications
 
-Installez par glisser-déposer, agissez sur une ou plusieurs applications à la fois.
+Installation par glisser-déposer, actions unitaires ou par lots.
 
-<img src="docs/screens/apps.webp" alt="Gestionnaire d'applications" width="900">
+<img src="docs/screens/apps.webp" alt="Gestion des applications" width="900">
 
-### Fichiers
+### Transfert de fichiers
 
-Deux volets, des transferts rapides et suivis.
+Double volet poste ↔ appareil, transferts suivis.
 
 <img src="docs/screens/files.webp" alt="Explorateur de fichiers avec un transfert en cours" width="900">
 
-### Terminal
+### Shell ADB
 
-Un vrai shell, en onglets, avec macros.
+Sessions en onglets, macros intégrées et personnalisables.
 
-<img src="docs/screens/terminal.webp" alt="Terminal ADB et macros" width="900">
+<img src="docs/screens/terminal.webp" alt="Shell ADB et macros" width="900">
 
 ### Logcat
 
-Des journaux lisibles même à fort débit, filtrables à volonté.
+Journaux système en temps réel, filtrables à la volée.
 
-<img src="docs/screens/logcat.webp" alt="Logcat en direct" width="900">
+<img src="docs/screens/logcat.webp" alt="Logcat en temps réel" width="900">
 
-### Moniteur
+### Supervision des performances
 
 Processeur, mémoire, températures et batterie en temps réel.
 
-<img src="docs/screens/monitor.webp" alt="Moniteur de performances" width="900">
+<img src="docs/screens/monitor.webp" alt="Supervision des performances" width="900">
 
-### Connexion sans fil
+### ADB sans fil
 
-Appairage par QR code, sans adresse ni port à retenir.
+Appairage par QR code, sans saisie d'adresse IP ni de port.
 
 <img src="docs/screens/wireless-qr.webp" alt="Appairage sans fil par QR code" width="900">
 
-### Miroir d'écran
+### Recopie d'écran
 
-L'écran de l'appareil dans une fenêtre, réglé pour vous.
+Recopie et contrôle de l'appareil via scrcpy.
 
-<img src="docs/screens/mirror.webp" alt="Réglages du miroir d'écran" width="900">
+<img src="docs/screens/mirror.webp" alt="Paramètres de la recopie d'écran" width="900">
 
 ### Réglages rapides
 
-Les options cachées d'Android, avec retour en arrière.
+Paramètres système avancés, avec restauration des valeurs d'origine.
 
 <img src="docs/screens/tweaks.webp" alt="Réglages rapides" width="900">
 
@@ -132,44 +124,50 @@ Les options cachées d'Android, avec retour en arrière.
 
 ## Mises à jour
 
-ADB Companion vérifie au démarrage si une nouvelle version est disponible ; rien n'est installé sans votre accord, et chaque paquet est vérifié par signature.
-Dans **Réglages → Mises à jour**, l'option **Versions expérimentales** permet de recevoir aussi les pré-versions publiées pour test.
+ADB Companion recherche les nouvelles versions au démarrage. Aucune mise à jour n'est installée sans votre accord,<br>
+et la signature de chaque paquet est vérifiée avant installation.<br>
+L'option **Versions expérimentales** (**Réglages → Mises à jour**) permet de recevoir également les pré-versions publiées à des fins de test.
 
 ## Questions fréquentes
 
 <details>
-<summary><b>Faut-il un appareil rooté ?</b></summary>
+<summary><b>Un accès root est-il nécessaire ?</b></summary>
 
-Non. Le root n'est utilisé que pour quelques fonctions avancées (explorateur de tout le système de fichiers, onglet root du terminal, vidage du cache d'une application), lorsque votre gestionnaire de root l'accorde au shell.
+Non. L'accès root n'est exploité que pour certaines fonctions avancées (accès à l'ensemble du système de fichiers,<br>
+session root du terminal, nettoyage du cache d'une application), lorsque le gestionnaire root l'accorde au shell.
 </details>
 
 <details>
-<summary><b>Où sont rangées mes données ? Des informations sont-elles envoyées ?</b></summary>
+<summary><b>Où les données sont-elles stockées ? Des informations sont-elles transmises ?</b></summary>
 
-Sous Windows, l'installation est portable : réglages, journaux et outils téléchargés sont dans un dossier `data` à côté de l'application ; l'installeur propose de le supprimer à la désinstallation.
-L'application n'envoie aucune donnée. Elle ne contacte Internet que pour vérifier les mises à jour et, à votre demande, télécharger ADB ou scrcpy.
+Sous Windows, l'installation est portable : paramètres, journaux et outils téléchargés sont stockés dans le dossier `data` de l'application ;<br>
+l'installeur propose de le supprimer lors de la désinstallation.<br>
+Aucune donnée n'est transmise : l'application ne se connecte à Internet que pour vérifier les mises à jour et, à votre demande, télécharger ADB ou scrcpy.
 </details>
 
 <details>
-<summary><b>Linux : l'appareil n'apparaît pas en USB.</b></summary>
+<summary><b>Linux : l'appareil n'est pas détecté en USB</b></summary>
 
-Installez les règles udev Android de votre distribution (souvent `android-udev-rules` ou `android-sdk-platform-tools-common`), ajoutez votre utilisateur au groupe indiqué (`plugdev` ou `adbusers`), puis rebranchez l'appareil.
+Installez les règles udev de votre distribution (`android-udev-rules` ou `android-sdk-platform-tools-common` selon les cas),<br>
+ajoutez l'utilisateur au groupe correspondant (`plugdev` ou `adbusers`), puis reconnectez l'appareil.
 </details>
 
 <details>
-<summary><b>L'appareil apparaît « non autorisé ».</b></summary>
+<summary><b>L'appareil apparaît comme « non autorisé »</b></summary>
 
-Déverrouillez l'appareil et acceptez la demande « Autoriser le débogage USB ? ». Si elle n'apparaît pas, révoquez les autorisations de débogage dans les *Options pour les développeurs*, puis rebranchez.
+Déverrouillez l'appareil et acceptez la demande « Autoriser le débogage USB ? ».<br>
+Si elle n'apparaît pas, révoquez les autorisations de débogage USB dans les *Options pour les développeurs*, puis reconnectez l'appareil.
 </details>
 
 <details>
-<summary><b>Le miroir d'écran reste noir sur mon téléviseur.</b></summary>
+<summary><b>La recopie d'écran reste noire sur un téléviseur</b></summary>
 
-Certains encodeurs vidéo de téléviseurs ne supportent pas les hautes définitions. ADB Companion relance automatiquement le miroir avec une définition plus basse ou un autre encodeur, et mémorise le réglage qui fonctionne pour cet appareil.
+Certains encodeurs vidéo de téléviseurs ne prennent pas en charge les hautes résolutions.<br>
+ADB Companion relance automatiquement la recopie avec une résolution inférieure ou un autre encodeur, et conserve le réglage fonctionnel pour cet appareil.
 </details>
 
 ---
 
-<div align="center">
-<sub>Ce dépôt héberge les versions publiées d'ADB Companion et son site. Miroir d'écran propulsé par <a href="https://github.com/Genymobile/scrcpy">scrcpy</a>.</sub>
+<sub>Ce dépôt héberge les versions publiées d'ADB Companion et son site. Recopie d'écran assurée par <a href="https://github.com/Genymobile/scrcpy">scrcpy</a>.</sub>
+
 </div>
